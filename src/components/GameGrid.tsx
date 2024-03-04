@@ -6,7 +6,7 @@ import GameCardShimmer from './GameCardShimmer';
 import GameCardConatiner from './GameCardContainer';
 
 const GameGrid = () =>{
-    const {games, error, isLoading} = useGames();
+    const {data, error, isLoading} = useGames();
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8]
     return(
         <>
@@ -16,7 +16,7 @@ const GameGrid = () =>{
                 <GameCardConatiner>
                     <GameCardShimmer key={skeleton} />
                 </GameCardConatiner> )}
-                {games?.map(game => (
+                {data?.map(game => (
                     <GameCardConatiner>
                         <GameCard key={game.id} game={game} />
                     </GameCardConatiner>
