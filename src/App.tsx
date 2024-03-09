@@ -29,7 +29,7 @@ function App() {
       }}
     >
       <GridItem area='nav'> 
-        <Box position='sticky' zIndex={5}>
+        <Box position='fixed' zIndex={5}>
           <Navbar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})} /> 
         </Box>
       </GridItem>
