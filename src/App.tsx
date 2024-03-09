@@ -28,13 +28,11 @@ function App() {
         lg: '200px 1fr'
       }}
     >
-      <GridItem area='nav'> 
-        <Box position='fixed' width='100%' zIndex={100}>
+      <GridItem area='nav'>   
           <Navbar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})} /> 
-        </Box>
       </GridItem>
       <Show above='lg'>
-        <GridItem position='absolute'  area={'aside'} paddingX={5} >  
+        <GridItem   area={'aside'} paddingX={5} >  
           <Box position='fixed'>
             <GenreList selectedGenre={gameQuery.genre} onSelectGenre={(genre) => setGameQuery({...gameQuery, genre})}/>      
           </Box>
