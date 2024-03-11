@@ -19,26 +19,24 @@ export interface GameQuery{
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>( {} as GameQuery )
   return (
-    <Grid templateAreas={{
-        base: `'nav' 'main' `,
-        lg: `'nav nav' 'aside main'`
-      }}
-      templateColumns={{
-        base: '1fr',
-        lg: '200px 1fr'
-      }}
+    <Grid templateAreas=
+      {`"header header"
+        "aside main"`
+      }
+      gridTemplateRows={'50px 1fr 30px'}
+      gridTemplateColumns={'260px 1fr'}
     >
-      <GridItem area='nav'>   
+      <GridItem area='header' position='fixed' w='100%'>   
           <Navbar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})} /> 
       </GridItem>
       <Show above='lg'>
-        <GridItem   area={'aside'} paddingX={5} >  
-          <Box position='fixed'>
-            <GenreList selectedGenre={gameQuery.genre} onSelectGenre={(genre) => setGameQuery({...gameQuery, genre})}/>      
-          </Box>
+        <GridItem   area={'aside'} paddingX={5} mt='30px'> 
+          <Box position='fixed' h='100vh' overflowY='auto'>
+            <GenreList selectedGenre={gameQuery.genre} onSelectGenre={(genre) => setGameQuery({...gameQuery, genre})}/>     
+          </Box>  
         </GridItem>
       </Show>
-      <GridItem area={'main'} >
+      <GridItem area={'main'} mt='10px' >
         <Box paddingLeft={2}>
           <GameHeading gameQuery={gameQuery} />
           <HStack spacing={5} marginBottom={5}>
